@@ -1,6 +1,5 @@
-from transformation_geometrique import calculer_reflexion_point
-from transformation_geometrique import calculer_rotate_point
-from transformation_geometrique import calculer_inclinaison_point
+from transformation_geometrique import *
+
 
 
 def test_calculer_reflexion_point_1():

@@ -5,6 +5,7 @@ from coordonnees_clou import *
 from traitement_image import *
 from segmentation import *
 from manupulation_histogramme import *
+from transformation_geometrique import *
 import matplotlib.pyplot as plt
 
 # Définition des constantes qui représentent les dimensions spécifiques du clou.
@@ -165,7 +166,7 @@ if __name__ == '__main__':
     # Visualisation des points du clou, des transformations appliquées,
     # des images en couleur et en niveaux de gris, des transformations d'image
     # et de l'image segmentée.
-    # visualiser_points_clou(__COORDS_CLOU)
+     visualiser_points_clou(__COORDS_CLOU)
     # visualiser_transformations_clou(__REFLECTED_COORD, __ROTATED_COORD, __INCLIN_COORD)
     # visualiser_image_couleur_ng(__PATH_IMAGE_ORIG, __PATH_IMAGE_NG)
     # visualiser_transforms_image(__PATH_IMAGE_NG)
