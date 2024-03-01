@@ -20,4 +20,4 @@ def test_calculer_inclinaison_point_1():
 
 
 def test_calculer_inclinaison_point_2():
-    assert calculer_inclinaison_point((2, 4), 5,
+    assert calculer_inclinaison_point((2, 4), 5, 'y') == (2.0, 4.17)
