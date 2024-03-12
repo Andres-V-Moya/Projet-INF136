@@ -171,3 +171,4 @@ if __name__ == '__main__':
     # visualiser_image_couleur_ng(__PATH_IMAGE_ORIG, __PATH_IMAGE_NG)
     # visualiser_transforms_image(__PATH_IMAGE_NG)
     # visualiser_seg_image(__PATH_IMAGE_NG)
+    # Bonjour
