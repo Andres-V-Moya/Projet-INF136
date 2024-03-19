@@ -26,30 +26,7 @@ def appliquer_rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
     plt.imsave(chemin_vers_image_ng, gry_img, cmap='gray')
 
 
-def appliquer_transformation_1(image_gris):
-
-    img = Image.open(image_gris)
-
-    width, height = img.size
-
-    middle_x = width // 2
-    middle_y = height // 2
-
-    middle_pixel = img.getpixel((middle_x, middle_y))
-
-    binary_img = Image.new('1', (width, height))
-
-    for y in range(height):
-        for x in range(width):
-            if (x, y) != (middle_x, middle_y):
-                pixel_value = img.getpixel((x, y))
-                if pixel_value > middle_pixel:
-                    binary_img.putpixel((x, y), 1)
-                else:
-                    binary_img.putpixel((x, y), 0)
-
-    binary_img.show()
-
 if __name__ == '__main__':
-    image_gris = "image_niveaux_de_gris.jpg"
-    appliquer_transformation_1(image_gris)
+    chemin_vers_image_org = 'image_couleur.jpg'
+    chemin_vers_image_ng = 'image_gris_3.jpg'
+    appliquer_rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng)
