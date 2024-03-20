@@ -1,8 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
 
-def appliquer_rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
+def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
 
     # Chargement de l'image originale
     img = plt.imread(chemin_vers_image_org)
@@ -25,8 +24,43 @@ def appliquer_rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
     # Enregistrement de l'image
     plt.imsave(chemin_vers_image_ng, gry_img, cmap='gray')
 
+def motif_voisin(tableau, i, j):
+    """
+    Calcul du motif binaire pour une valeur donnée et conversion en valeur décimale.
+    """
+    motif_binaire = ''
 
-if __name__ == '__main__':
-    chemin_vers_image_org = 'image_couleur.jpg'
-    chemin_vers_image_ng = 'image_gris_3.jpg'
-    appliquer_rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng)
+    # Valeur centrale
+    central = tableau[i, j]
+
+    # Coordonnées des voisins
+    neighbors = [(i-1, j-1), (i-1, j), (i-1, j+1),
+                 (i, j+1),              (i+1, j+1),
+                 (i+1, j), (i+1, j-1), (i, j-1)]
+
+    # Comparaison des valeurs des voisins avec la valeur centrale
+    for neighbor_i, neighbor_j in neighbors:
+        # Verification si les valeurs sont dans le tableau
+        if 0 <= neighbor_i < tableau.shape[0] and 0 <= neighbor_j < tableau.shape[1]:
+            neighbor_value = tableau[neighbor_i, neighbor_j]
+            motif_binaire += '1' if neighbor_value >= central else '0'
+        else:
+            motif_binaire += '0'  # Outline values treated as zeros
+
+    # Conversion du motif binaire en valeur décimale
+    motif_decimal = int(motif_binaire, 2)
+
+    return motif_decimal
+
+def appliquer_transformation_1(tableau):
+    """
+    Calcul de la valeur entière correspondant au motif binaire pour chaque valeur du tableau.
+    """
+    resultat = np.zeros_like(tableau)
+
+    # Parcours du tableau pour chaque valeur
+    for i in range(1, tableau.shape[0]-1):
+        for j in range(1, tableau.shape[1]-1):
+            resultat[i, j] = motif_voisin(tableau, i, j)
+
+    return resultat
