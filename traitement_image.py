@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
 
     # Chargement de l'image originale
@@ -24,6 +25,7 @@ def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
     # Enregistrement de l'image
     plt.imsave(chemin_vers_image_ng, gry_img, cmap='gray')
 
+
 def motif_voisin(tableau, i, j):
     """
     Calcul du motif binaire pour une valeur donnée et conversion en valeur décimale.
@@ -31,19 +33,19 @@ def motif_voisin(tableau, i, j):
     motif_binaire = ''
 
     # Valeur centrale
-    central = tableau[i, j]
+    centrale = tableau[i, j]
 
     # Coordonnées des voisins
-    neighbors = [(i-1, j-1), (i-1, j), (i-1, j+1),
-                 (i, j+1),              (i+1, j+1),
-                 (i+1, j), (i+1, j-1), (i, j-1)]
+    voisin = [(i-1, j-1), (i-1, j), (i-1, j+1),
+              (i, j+1), (i+1, j+1), (i+1, j),
+              (i+1, j-1), (i, j-1)]
 
     # Comparaison des valeurs des voisins avec la valeur centrale
-    for neighbor_i, neighbor_j in neighbors:
+    for voisin_i, voisin_j in voisin:
         # Verification si les valeurs sont dans le tableau
-        if 0 <= neighbor_i < tableau.shape[0] and 0 <= neighbor_j < tableau.shape[1]:
-            neighbor_value = tableau[neighbor_i, neighbor_j]
-            motif_binaire += '1' if neighbor_value >= central else '0'
+        if 0 <= voisin_i < tableau.shape[0] and 0 <= voisin_j < tableau.shape[1]:
+            valeur_voisin = tableau[voisin_i, voisin_j]
+            motif_binaire += '1' if valeur_voisin >= centrale else '0'
         else:
             motif_binaire += '0'  # Outline values treated as zeros
 
@@ -51,6 +53,7 @@ def motif_voisin(tableau, i, j):
     motif_decimal = int(motif_binaire, 2)
 
     return motif_decimal
+
 
 def appliquer_transformation_1(tableau):
     """

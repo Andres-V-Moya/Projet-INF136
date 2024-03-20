@@ -32,7 +32,7 @@ __REFLECTED_COORD, __ROTATED_COORD, __INCLIN_COORD = appliquer_transormation_clo
 
 # Chemins vers les images originale et en niveaux de gris.
 __PATH_IMAGE_ORIG = 'image_couleur.jpg'
-__PATH_IMAGE_NG = 'image_niveaux_de_gris.jpg'
+__PATH_IMAGE_NG = 'image_gris.jpg'
 
 # Fonction pour visualiser les points du clou.
 def visualiser_points_clou(coordonnees_et_noms):
@@ -170,5 +170,5 @@ if __name__ == '__main__':
     #visualiser_points_clou(__COORDS_CLOU)
     #visualiser_transformations_clou(__REFLECTED_COORD, __ROTATED_COORD, __INCLIN_COORD)
     visualiser_image_couleur_ng(__PATH_IMAGE_ORIG, __PATH_IMAGE_NG)
-    # visualiser_transforms_image(__PATH_IMAGE_NG)
+    visualiser_transforms_image(__PATH_IMAGE_NG)
     # visualiser_seg_image(__PATH_IMAGE_NG)
