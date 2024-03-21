@@ -67,3 +67,30 @@ def appliquer_transformation_1(tableau):
             resultat[i, j] = motif_voisin(tableau, i, j)
 
     return resultat
+
+
+def log_voisin(tableau, i, j, rayon):
+
+    log_ho = np.log10(1.0 + np.abs(tableau[i, j + rayon] - 2 * tableau[i, j] + tableau[i, j - rayon]))
+
+    log_ver = np.log10(1.0 + np.abs(tableau[i + rayon, j] - 2 * tableau[i, j] + tableau[i - rayon, j]))
+
+    log_diag = np.log10(1.0 + np.abs(tableau[i - rayon, j + rayon] - 2 * tableau[i, j] + tableau[i + rayon, j - rayon]))
+
+    valeur_tot = int(log_ho + log_ver + log_diag)
+
+    return valeur_tot
+
+
+def appliquer_transformation_2(tableau, rayon):
+    """
+    Calcul de la valeur entière correspondant au motif binaire pour chaque valeur du tableau.
+    """
+    resultat = np.zeros_like(tableau)
+
+    # Parcours du tableau pour chaque valeur
+    for i in range(rayon, tableau.shape[0]-rayon):
+        for j in range(rayon, tableau.shape[1]-rayon):
+            resultat[i, j] = log_voisin(tableau, i, j, rayon)
+
+    return resultat
