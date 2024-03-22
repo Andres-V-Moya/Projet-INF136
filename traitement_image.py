@@ -25,7 +25,6 @@ def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
     # Enregistrement de l'image
     plt.imsave(chemin_vers_image_ng, gry_img, cmap='gray')
 
-
 def motif_voisin(tableau, i, j):
     """
     Calcul du motif binaire pour une valeur donnée et conversion en valeur décimale.
