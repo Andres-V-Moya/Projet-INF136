@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     # Chemin des images d'origine et en niveaux de gris
     path_image_orig = 'image_couleur.jpg'
-    path_image_ng = 'image_gris.jpg'
+    path_image_ng = 'image_niveaux_de_gris.jpg'
 
     # Conversion d'une image couleur en niveaux de gris et visualisation des deux images
     rgb_to_gry(path_image_orig, path_image_ng)
