@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+### Faudrait-il pas que la fonction soit nommée "appliquer_rgb_to_gry"? Il manque la description et les arguments
+### et le retourne
 def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
 
     # Chargement de l'image originale
@@ -25,6 +26,7 @@ def rgb_to_gry(chemin_vers_image_org, chemin_vers_image_ng):
     # Enregistrement de l'image
     plt.imsave(chemin_vers_image_ng, gry_img, cmap='gray')
 
+### Il manque les arguments et le retourne
 def motif_voisin(tableau, i, j):
     """
     Calcul du motif binaire pour une valeur donnée et conversion en valeur décimale.
@@ -44,30 +46,31 @@ def motif_voisin(tableau, i, j):
         # Verification si les valeurs sont dans le tableau
         if 0 <= voisin_i < tableau.shape[0] and 0 <= voisin_j < tableau.shape[1]:
             valeur_voisin = tableau[voisin_i, voisin_j]
+            ### expliquer que fait le code ici
             motif_binaire += '1' if valeur_voisin >= centrale else '0'
         else:
-            motif_binaire += '0'  # Outline values treated as zeros
+            motif_binaire += '0'  # Outline values treated as zeros ### Commentaire en anglais
 
     # Conversion du motif binaire en valeur décimale
     motif_decimal = int(motif_binaire, 2)
 
     return motif_decimal
 
-
+### Il manque les arguments et le retourne
 def appliquer_transformation_1(tableau):
     """
     Calcul de la valeur entière correspondant au motif binaire pour chaque valeur du tableau.
     """
     resultat = np.zeros_like(tableau)
 
-    # Parcours du tableau pour chaque valeur
+    # Parcours du tableau pour chaque valeur ### plutot "Mettre les décimales obtenus dans un tableau par la fonction "motif_voisin"."?
     for i in range(1, tableau.shape[0]-1):
         for j in range(1, tableau.shape[1]-1):
             resultat[i, j] = motif_voisin(tableau, i, j)
 
     return resultat
 
-
+### Il manque la description et les arguments et le retourne
 def log_voisin(tableau, i, j, rayon):
 
     log_ho = np.log10(1.0 + np.abs(tableau[i, j + rayon] - 2 * tableau[i, j] + tableau[i, j - rayon]))
@@ -80,7 +83,7 @@ def log_voisin(tableau, i, j, rayon):
 
     return valeur_tot
 
-
+### Il manque les arguments et le retourne
 def appliquer_transformation_2(tableau, rayon):
     """
     Calcul de la valeur entière correspondant au motif binaire pour chaque valeur du tableau.
