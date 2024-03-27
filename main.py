@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     # Application de transformations sur l'image et stockage des résultats
     image_trasf_1 = appliquer_transformation_1(img_array)
-    image_trasf_2 = appliquer_transformation_2(img_array, radius=2)
+    image_trasf_2 = appliquer_transformation_2(img_array, rayon=2)
 
     # Création d'une liste pour stocker les images et les titres correspondants
     images = [img_array, image_trasf_1, image_trasf_2]

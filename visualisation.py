@@ -3,8 +3,8 @@
 # matplotlib.pyplot est utilisé pour la visualisation graphique.
 from coordonnees_clou import *
 from traitement_image import *
-#from segmentation import *
-#from manupulation_histogramme import *
+from segmentation import *
+from manipulation_histogramme import *
 from transformation_geometrique import *
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -171,4 +171,4 @@ if __name__ == '__main__':
     visualiser_transformations_clou(__REFLECTED_COORD, __ROTATED_COORD, __INCLIN_COORD)
     visualiser_image_couleur_ng(__PATH_IMAGE_ORIG, __PATH_IMAGE_NG)
     visualiser_transforms_image(__PATH_IMAGE_NG)
-    # visualiser_seg_image(__PATH_IMAGE_NG)
+    visualiser_seg_image(__PATH_IMAGE_NG)
