@@ -1,6 +1,6 @@
 from manipulation_histogramme import *
 
-def test_calcer_histogramme():
+def test_calculer_histogramme():
 
     tableau = np.array([[255, 160, 10, 49],
                         [20, 170, 1, 121],
