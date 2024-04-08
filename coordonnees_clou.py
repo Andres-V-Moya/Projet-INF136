@@ -26,6 +26,7 @@ def calculer_coordonnees_clou(A, B, C, D, E):
 def appliquer_transormation_clou(points_clou, center_rotation, angle_rotation,
                                  direction_inclinaison, angle_inclinaison, axe_reflexion):
     """
+    Appliquer les transformation géometriques: réflexion, rotation et inclinaison à tous les points clés.
     Arguments:
         points_clou (list): Une liste de tuples qui contient le nom du point
         et les coordonnées du point dans un plan 2D.
