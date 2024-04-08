@@ -45,12 +45,3 @@ def calculer_distance_2(histo1, histo2):
     distance = np.sum((abs(histo1 - histo2)))
 
     return round(distance, 2)
-
-if __name__ == '__main__':
-
-    histo1 = np.array([3, 2, 2, 2])
-
-    histo2 = np.array([3, 1.5, 2, 2.5])
-    #histo2 = np.array([3.5, 1, 2, 2.5])
-
-    print(calculer_distance_1(histo1, histo2))

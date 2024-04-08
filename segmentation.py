@@ -3,12 +3,14 @@ from manipulation_histogramme import *
 def regrouper_points(data, max_iterations=500):
     """
     Divise un ensemble de points dans un plan 2D en un nombre défini de groupes en utilisant l'algorithme K-means.
+
     Arguments :
-    data (numpy.ndarray): Un tableau 2d numpy représentant l'ensemble de données à partitionner.
-    k (int): Le nombre de groupes à identifier dans l'ensemble de données.
-    max_iterations (int): Le nombre maximal d'itérations que l'algorithme exécutera. La valeur par défaut est 50.
+        data (numpy.ndarray): Un tableau 2d numpy représentant l'ensemble de données à partitionner.
+        k (int): Le nombre de groupes à identifier dans l'ensemble de données.
+        max_iterations (int): Le nombre maximal d'itérations que l'algorithme exécutera. La valeur par défaut est 50.
+
     Retourne :
-    numpy.ndarray: Un tableau numpy 1D où chaque élément correspond à l'indice du centre le plus proche pour chaque point de l'ensemble de données.
+        numpy.ndarray: Un tableau numpy 1D où chaque élément correspond à l'indice du centre le plus proche pour chaque point de l'ensemble de données.
     """
     k = 2
 
@@ -44,23 +46,3 @@ def regrouper_points(data, max_iterations=500):
         iteration += 1
 
     return groups
-
-# Exemple d'utilisation
-if __name__ == "__main__":
-    # Génération de données aléatoires pour l'exemple
-    #np.random.seed(0)
-
-    data = np.array([[4, 4, 3, 3],
-                     [3, 4, 2, 2],
-                     [3, 0, 2, 3],
-                     [1, 0, 2, 1],
-                     [2, 0, 2, 0],
-                     [1, 4, 2, 3],
-                     [3, 4, 2, 3],
-                     [2, 3, 2, 2]])
-
-    # Partitionnement des données en utilisant K-means
-    groups = regrouper_points(data)
-
-    print("Affectation des groupes pour chaque point :")
-    print(groups)
