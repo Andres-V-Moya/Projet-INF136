@@ -3,20 +3,22 @@ import numpy as np
 
 def petit_tableau(tableau, i, j, w):
     """
+    Génère un histogramme pour une pixel de l'image en utilisant le voisinage du pixel.
 
     Args:
-        tableau:
-        i:
-        j:
-        w:
+        tableau (numpy.ndarray): Une tableau 2D NumPy représentant une image.
+        i (int): Coordonée du tableau selon les lignes du tableau.
+        j (int): Coordonée du tableau selon les colonnes du tableau.
+        w (int): La taille du carré de voisinage autour de chaque pixel.
 
     Returns:
-
+        (numpy.hist): Un histogramme généré avec des bins prédéfinis basés sur la valeur maximales
+         des intensités de pixels.
     """
     valeur_max = tableau.max()
     m, n = tableau.shape
 
-    # coordonne des valeurs du petit tableau
+    # Coordonnées des valeurs du petit tableau
     indices = [(x, y) for x in range(i - w, i)
                for y in range(j - w, j)
                if 0 <= x < m and 0 <= y < n]
@@ -33,7 +35,7 @@ def petit_tableau(tableau, i, j, w):
 
 def calculer_histogramme(tableau, w):
     """
-    Génère un histogramme pour chaque pixel de l'image en utilisant le voisinage du pixel.
+    Génère un histogramme pour chaque pixel de l'image en utilisant la fonction "petit_tableau".
 
     Arguments:
         tableau (numpy.ndarray): Un tableau 2D NumPy représentant une image.
