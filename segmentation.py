@@ -14,6 +14,9 @@ def regrouper_points(data, max_iterations=500):
     """
     k = 2
 
+    nombre_de_0 = 0
+    nombre_de_1 = 0
+
     # Initialisation aléatoire des centres
     centroids = np.empty((k, data.shape[1]))
 
@@ -44,5 +47,21 @@ def regrouper_points(data, max_iterations=500):
             centroids = new_centroids
 
         iteration += 1
+
+    if k == 2:
+        # Compter le nombre de pixels dans les groups 0 et 1
+        for i in range(len(groups)):
+            if groups[i] == 0:
+                nombre_de_0 += 1
+            if groups[i] == 1:
+                nombre_de_0 += 1
+
+        # Changer le group le plus grand pourqu'il soit le group 1
+        if nombre_de_1 > nombre_de_0:
+            for i in range(len(groups)):
+                if groups[i] == 0:
+                    groups[i] = 1
+                else:
+                    groups[i] = 0
 
     return groups
