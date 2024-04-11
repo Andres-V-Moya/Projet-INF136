@@ -35,10 +35,10 @@ def regrouper_points(data, max_iterations=500):
         distances = np.array([np.array([calculer_distance_1(point, centroid) for centroid in centroids]) for point in data])
 
         # Attribution des groupes en fonction des distances minimales
-        groups = np.argmin(distances, axis=1)
+        groupes = np.argmin(distances, axis=1)
 
         # Mise à jour des centres
-        new_centroids = np.array([data[groups == i].mean(axis=0) for i in range(k)])
+        new_centroids = np.array([data[groupes == i].mean(axis=0) for i in range(k)])
 
         # Vérification de la convergence
         if np.all(centroids == new_centroids):
@@ -49,19 +49,19 @@ def regrouper_points(data, max_iterations=500):
         iteration += 1
 
     if k == 2:
-        # Compter le nombre de pixels dans les groups 0 et 1
-        for i in range(len(groups)):
-            if groups[i] == 0:
+        # Compter le nombre de pixels dans les groupes 0 et 1
+        for i in range(len(groupes)):
+            if groupes[i] == 0:
                 nombre_de_0 += 1
-            if groups[i] == 1:
+            if groupes[i] == 1:
                 nombre_de_0 += 1
 
-        # Changer le group le plus grand pourqu'il soit le group 1
+        # Changer le groupe le plus grand pourqu'il soit le groupe 0
         if nombre_de_1 > nombre_de_0:
-            for i in range(len(groups)):
-                if groups[i] == 0:
-                    groups[i] = 1
+            for i in range(len(groupes)):
+                if groupes[i] == 0:
+                    groupes[i] = 1
                 else:
-                    groups[i] = 0
+                    groupes[i] = 0
 
-    return groups
+    return groupes
