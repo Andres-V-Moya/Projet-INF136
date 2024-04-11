@@ -123,7 +123,6 @@ def visualiser_seg_image(path_image_ng, radius=2, w=3):
     # Calcul de l'histogramme et segmentation
     tab_histo = calculer_histogramme(image_trasf_2, w)
     labels2 = regrouper_points(tab_histo)
-    print(labels2)
     segmented_image = labels2.reshape(img_array.shape[0] - w + 1, img_array.shape[1] - w + 1)
 
     # Affichage de l'image segmentée
